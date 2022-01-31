@@ -33,6 +33,13 @@ base64 -d retohash.txt
 
 ---------------------
 
+─(kali㉿kali)-[~/Documents]
+└─$ gcc pass.c   
+
+─$ ./a.out 
+Password : 8388480
+
+
 
 1. ascii to hex - 
   encryptXOR -   656E6372797074584F52
@@ -89,4 +96,15 @@ File Name                       : balloon-fc416bf4b40d82bcaa2b941bd38a42cd.jpg
 Directory                       : .
 
 
---------------------------------------------------
+--------------------------------------------------------
+
+
+sudo apt install python3-pip
+
+$ pip install pycrypto                                                                                                                        127 ⨯
+Collecting pycrypto
+
+--------------------------
+
+
+
