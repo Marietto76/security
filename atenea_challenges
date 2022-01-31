@@ -1,0 +1,60 @@
+https://atenea.ccn-cert.cni.es/challenges?category=7&status=correct
+
+Hash5
+
+└─$ echo -n 'LearnTheHashFunction' | md5sum
+b2f2d6b27b264d83fe1abe0169b7613e  -
+                                        
+
+------------------------------
+Convertir a hash sha256
+
+──(kali㉿kali)-[~]
+└─$ echo -n 'ThisIsAMoreSecureHashFunction' | sha256sum             
+d191ce0a9d8061acb609be613d0a6dccd13d93946fa3e8aa3c0c40a2102502ff  -
+                                                                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ 
+                                                                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ echo -n 'd191ce0a9d8061acb609be613d0a6dccd13d93946fa3e8aa3c0c40a2102502ff' | md5sum
+dd321a22229e0bbb5f8271e370b61eb0  -
+                                                                                                                                                     
+
+
+┌──(kali㉿kali)-[~]
+└─$ 
+
+
+-Descrifrar un archivo en base 64----------------------------------------
+
+base64 -d retohash.txt 
+
+
+---------------------
+
+
+1. ascii to hex - 
+  encryptXOR -   656E6372797074584F52
+              
+	       - 656E6372797074584F526B6579
+ encryptXORkey - 656E6372797074584F526B6579
+
+2. base64 to hex - mas largo  
+
+   UGFzc3dvcmQ6IHhvFzYMACEfBiAgIA==  - 
+
+ - HQERKhYCLDc9KgQX -  1d01112a16022c373d2a0417
+
+3. xor entre los dos- 6573626353667674786f41616e
+         6573626353667674786f41616e
+         6573626353667674786f41616e
+
+         1d0174447570554749724b45
+
+
+4. hex to ascii - password:   esbcSfvtxoAan
+5 pass it to md5
+
+
+-----------------------------------
