@@ -1,0 +1,24 @@
+*********INSPECCION DE DIRECTORIOS*********
+
+ffuf -w /opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt:FUZZ -u http://SERVER_IP:PORT/FUZZ
+
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/directory-list-2.3-small.txt
+
+ejemplo:
+
+  
+
+//gobuster
+git clone https://github.com/danielmiessler/SecLists.git
+sudo gobuster dir -w /usr/share/wordlists/dirb/common.txt -u {target_ip}
+
+
+******************************************************
+SQL Injection 
+
+Loign page: Username: admin'#   passw:cualquiera clic en login.
+
+
+**************************
+
+
