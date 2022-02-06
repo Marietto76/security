@@ -20,5 +20,53 @@ Loign page: Username: admin'#   passw:cualquiera clic en login.
 
 
 **************************
+Wappalyzer add-on in browser to see --> para saber con que programas se ha desarrollado ese sitio web 
 
+technology they have used to create their website and possibly find any associated vulnerabilities, we can
+use a handy browser plug-in called Wappalyze
+
+
+****-x php html*************************************
+
+  gobuster dir --url http://10.129.121.169/ --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,html
+ 
+ 
+ *********302 status curl*******************************
+ 
+cURL . This tool will allow us to manipulate HTTP requests made to a server and receive the
+responses directly in the terminal, w
+
+302 status
+302 resource we requested ( / ) has been (temporarily) moved to http://ignition.htb/
+!!ESTO PASA PQ ES UN SOLO SERVIDOR WEBSERVER QUE HOSTEA A VARIAS PAGINAS y hay un tema con el DNS
+echo "10.129.121.179 ignition.htb" | sudo tee -a /etc/hosts
+
+gobuster dir --url http://ignition.htb/ --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+
+http://ignition.htb/admin
+2021***
+admin admin123
+admin root123
+admin password1
+admin administrator1
+admin changeme1
+admin password123
+admin qwerty123
+admin administrator123
+admin changeme123
+
+2022**
+
+123456
+123456789
+qwerty
+password
+12345
+qwerty123
+1q2w3e
+12345678
+111111
+1234567890
+
+********************************
 
